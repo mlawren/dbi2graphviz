@@ -7,7 +7,6 @@ use Module::Build::Pluggable 'CPANfile';
 my $builder = Module::Build::Pluggable->new(
     module_name    => 'App::dbi2graphviz',
     create_license => 1,
-    create_readme  => 1,
     license        => 'GPL_3',
     dist_author    => 'Mark Lawrence <nomad@null.net>',
     dist_version   => '0.0.1_1',
@@ -35,5 +34,6 @@ Module::Build::Compat->write_makefile( build_class => 'Module::Build' );
 
 use Pod::Text;
 my $parser = Pod::Text->new( sentence => 0, width => 78 );
+unlink 'README';
 $parser->parse_from_file( 'bin/dbi2graphviz', 'README' );
 
