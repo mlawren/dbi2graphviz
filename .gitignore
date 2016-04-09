@@ -3,6 +3,7 @@ cover_db/
 .direnv
 .envrc
 _build
+App-dbi2graphviz*
 Build
 Makefile
 Makefile.old
