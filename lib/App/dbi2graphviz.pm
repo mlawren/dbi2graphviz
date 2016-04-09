@@ -7,7 +7,7 @@ use GraphViz2;
 use Time::Piece;
 use XML::API;
 
-our $VERSION = '0.0.1_1';
+our $VERSION = '0.0.1_2';
 
 sub run {
     my $class = shift;
