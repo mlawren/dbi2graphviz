@@ -1,0 +1,63 @@
+{
+   "abstract" : "database schema diagram generator",
+   "author" : [
+      "Mark Lawrence <nomad@null.net>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.421",
+   "keywords" : [],
+   "license" : [
+      "gpl_3"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "App-dbi2graphviz",
+   "no_index" : {
+      "package" : []
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build::Pluggable::CPANfile" : "0.05"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.4004",
+            "Module::Build::Pluggable" : "0",
+            "Module::Build::Pluggable::CPANfile" : "0.05"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "DBIx::Model" : "0",
+            "GraphViz2" : "0",
+            "OptArgs2" : "0",
+            "Time::Piece" : "0",
+            "XML::API" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test2::Bundle::Extended" : "0"
+         }
+      }
+   },
+   "release_status" : "testing",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/mlawren/dbi2graphviz/issues"
+      },
+      "homepage" : "https://github.com/mlawren/dbi2graphviz",
+      "license" : [
+         "http://www.gnu.org/licenses/gpl-3.0.txt"
+      ],
+      "repository" : {
+         "url" : "git://github.com/mlawren/dbi2graphviz.git"
+      }
+   },
+   "version" : "v0.0.1_1",
+   "x_serialization_backend" : "JSON::PP version 2.27300"
+}

@@ -1,0 +1,42 @@
+NAME
+    dbi2graphviz - database schema diagram generator
+
+VERSION
+    0.0.1_1 (2016-04-09)
+
+SYNOPSIS
+            dbi2graphviz DSN OUTPUT [OPTIONS...]
+
+DESCRIPTION
+    dbi2graphviz generates entity relationship diagrams using Perl's database
+    interface DBI and programs from the graphviz distribution - dot, neato,
+    twopi, etc.
+
+  Options and Arguments
+      Arguments:            
+        DSN                 DBI connection string
+        OUTPUT              graphviz output filename
+
+      Options:              
+        --color=STR,   -c   chain color (use for each chain)
+        --driver=STR,  -d   the graphivz driver
+        --exclude=STR, -e   table name(s) to exclude
+        --help,        -h   print full help message and exit
+        --include=STR, -i   table name(s) to include
+        --name=STR          name of the database
+        --rankdir=STR, -r   flow direction attribute
+
+    --help, -h
+        Print a full usage message to *stderr* and exit.
+
+AUTHOR
+    Mark Lawrence <nomad@null.net>
+
+COPYRIGHT AND LICENSE
+    Copyright 2016 Mark Lawrence <nomad@null.net>
+
+    This program is free software; you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the Free
+    Software Foundation; either version 3 of the License, or (at your option)
+    any later version.
+

@@ -1,0 +1,138 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use lib 'lib';
+use OptArgs2;
+
+our $VERSION = '0.0.1';
+
+arg dsn => (
+    isa      => 'Str',
+    comment  => 'DBI connection string',
+    required => 1,
+);
+
+arg output => (
+    isa      => 'Str',
+    comment  => 'graphviz output filename',
+    required => 1,
+);
+
+opt color => (
+    alias   => 'c',
+    isa     => 'ArrayRef',
+    comment => 'chain color (use for each chain)',
+    default => [
+        qw/
+          aliceblue
+          wheat3 	wheat4
+          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
+          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
+          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
+          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
+          gold 	gold1 	gold2 	gold3 	gold4
+          yellow1 	yellow2 	yellow3 	yellow4 	yellowgreen
+          /
+    ],
+);
+
+opt exclude => (
+    alias   => 'e',
+    isa     => 'ArrayRef',
+    comment => 'table name(s) to exclude',
+    default => sub { [] },
+);
+
+opt driver => (
+    alias   => 'd',
+    isa     => 'Str',
+    comment => 'the graphivz driver',
+    default => 'dot',
+);
+
+opt help => (
+    alias   => 'h',
+    isa     => 'Flag',
+    comment => 'print full help message and exit',
+    ishelp  => 1,
+);
+
+opt include => (
+    alias   => 'i',
+    isa     => 'ArrayRef',
+    comment => 'table name(s) to include',
+);
+
+opt name => (
+    isa     => 'Str',
+    comment => 'name of the database',
+);
+
+opt rankdir => (
+    isa     => 'Str',
+    alias   => 'r',
+    comment => 'flow direction attribute',
+    default => 'TB',
+);
+
+my $opts = optargs;
+require App::dbi2graphviz;
+App::dbi2graphviz->run($opts);
+
+1;
+__END__
+
+=head1 NAME
+
+dbi2graphviz - database schema diagram generator
+
+=head1 VERSION
+
+0.0.1_1 (2016-04-09)
+
+=head1 SYNOPSIS
+
+	dbi2graphviz DSN OUTPUT [OPTIONS...]
+
+=head1 DESCRIPTION
+
+B<dbi2graphviz> generates entity relationship diagrams using Perl's
+database interface L<DBI> and programs from the L<graphviz>
+distribution - dot, neato, twopi, etc.
+
+=head2 Options and Arguments
+
+  Arguments:            
+    DSN                 DBI connection string
+    OUTPUT              graphviz output filename
+
+  Options:              
+    --color=STR,   -c   chain color (use for each chain)
+    --driver=STR,  -d   the graphivz driver
+    --exclude=STR, -e   table name(s) to exclude
+    --help,        -h   print full help message and exit
+    --include=STR, -i   table name(s) to include
+    --name=STR          name of the database
+    --rankdir=STR, -r   flow direction attribute
+
+=over
+
+=item --help, -h
+
+Print a full usage message to I<stderr> and exit.
+
+=back
+
+=head1 AUTHOR
+
+Mark Lawrence E<lt>nomad@null.netE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright 2016 Mark Lawrence <nomad@null.net>
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3 of the License, or (at your
+option) any later version.
+

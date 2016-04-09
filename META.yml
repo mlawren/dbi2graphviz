@@ -1,0 +1,34 @@
+---
+abstract: 'database schema diagram generator'
+author:
+  - 'Mark Lawrence <nomad@null.net>'
+build_requires:
+  Module::Build::Pluggable::CPANfile: '0.05'
+  Test2::Bundle::Extended: '0'
+configure_requires:
+  Module::Build: '0.4004'
+  Module::Build::Pluggable: '0'
+  Module::Build::Pluggable::CPANfile: '0.05'
+dynamic_config: 1
+generated_by: 'Module::Build version 0.421, CPAN::Meta::Converter version 2.150005'
+keywords: []
+license: gpl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: '1.4'
+name: App-dbi2graphviz
+no_index:
+  package: []
+requires:
+  DBIx::Model: '0'
+  GraphViz2: '0'
+  OptArgs2: '0'
+  Time::Piece: '0'
+  XML::API: '0'
+resources:
+  bugtracker: https://github.com/mlawren/dbi2graphviz/issues
+  homepage: https://github.com/mlawren/dbi2graphviz
+  license: http://www.gnu.org/licenses/gpl-3.0.txt
+  repository: git://github.com/mlawren/dbi2graphviz.git
+version: v0.0.1_1
+x_serialization_backend: 'CPAN::Meta::YAML version 0.012'
