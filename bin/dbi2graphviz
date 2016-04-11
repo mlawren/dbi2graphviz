@@ -24,14 +24,19 @@ opt color => (
     comment => 'chain color (use for each chain)',
     default => [
         qw/
-          aliceblue
-          wheat3 	wheat4
-          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
-          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
-          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
-          gold brown chocolate yellow orange darkorange1 	darkorange2 	darkorange3 	darkorange4 	darkorchid
-          gold 	gold1 	gold2 	gold3 	gold4
-          yellow1 	yellow2 	yellow3 	yellow4 	yellowgreen
+          lightskyblue
+          lightsteelblue
+          lightsalmon
+          burlywood
+          palegreen
+          khaki
+          lightblue
+          palegoldenrod
+          pink
+          plum
+          rosybrown
+          tan
+          thistle
           /
     ],
 );

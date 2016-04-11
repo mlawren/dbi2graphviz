@@ -15,6 +15,8 @@ sub run {
     $opts->{dsn} = 'dbi:SQLite:dbname=' . $opts->{dsn} if -f $opts->{dsn};
     $opts->{format} = $opts->{output} =~ s/.*\.(.*)/$1/r;
 
+    my $max_color = scalar @{ $opts->{color} };
+
     my $dbh = DBI->connect( $opts->{dsn} );
     my $db  = $dbh->model(
         name => $opts->{name} // $opts->{dsn},
@@ -125,7 +127,8 @@ sub run {
                     port   => $col->name,
                     width  => 5,
                     $col->chain
-                    ? ( bgcolor => $opts->{color}->[ $col->chain ] || 'grey' )
+                    ? ( bgcolor =>
+                          $opts->{color}->[ ( $col->chain - 1 ) % $max_color ] )
                     : (),
                 },
                 $col->name . ' '
@@ -174,7 +177,7 @@ sub run {
             $graph->add_edge(
                 from  => $fk->table->name . ':' . $fcol->name,
                 to    => $fk->to_table->name . ':' . $tcol->name,
-                color => $opts->{color}->[ $tcol->chain ] || 'grey',
+                color => $opts->{color}->[ ( $tcol->chain - 1 ) % $max_color ],
             );
         }
     }
@@ -187,8 +190,8 @@ sub run {
     );
 
     foreach my $chain ( 1 .. $db->chains ) {
-        print "FK Chain $chain: "
-          . ( $opts->{color}->[$chain] || 'grey' ) . "\n";
+        printf "FK Chain %d: %s\n", $chain,
+          ( $opts->{color}->[ ( $chain - 1 ) % $max_color ] );
     }
 
     #print $db->as_string;
