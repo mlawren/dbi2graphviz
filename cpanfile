@@ -10,7 +10,7 @@ on runtime => sub {
     requires 'GraphViz2'   => 0;
     requires 'OptArgs2'    => 0;
     requires 'Time::Piece' => 0;
-    requires 'XML::API'    => 0;
+    requires 'XML::API'    => '0.30';
 };
 
 on test => sub {
