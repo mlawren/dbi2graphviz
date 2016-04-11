@@ -56,7 +56,7 @@ sub run {
     $x->td_open( { align => 'left', } );
     $x->b('Database:');
     $x->td_close;
-    $x->td( { align => 'left', colspan => $db->chains }, $db->name );
+    $x->td( { align => 'left', }, $db->name );
     $x->tr_close;
 
     $x->tr_open;
@@ -69,7 +69,7 @@ sub run {
         ( abs( $t->tzoffset ) - int( abs( $t->tzoffset ) / 3600 ) * 3600 ) /
           60 );
 
-    $x->td( { align => 'left', colspan => $db->chains },
+    $x->td( { align => 'left' },
         $t->strftime('%F %T') . ' ' . $tz . ' by dbi2graphviz v' . $VERSION );
     $x->tr_close;
 
