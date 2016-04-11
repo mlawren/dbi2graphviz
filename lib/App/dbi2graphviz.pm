@@ -82,6 +82,7 @@ sub run {
             label     => '<' . $x . '>',
             rankdir   => uc( $opts->{rankdir} ),
             labeljust => 'l',
+            overlap   => 'false',
         },
         edge   => { color => 'grey' },
         global => {
