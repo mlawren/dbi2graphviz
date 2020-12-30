@@ -70,8 +70,8 @@
 ^MANIFEST\.SKIP
 
 # Avoid archives of this distribution
-\bApp-dbi2graphviz-v[\d\.\_]+
-\bApp-dbi2graphviz-[\d\.\_]+
+\bdbi2graphviz-v[\d\.\_]+
+\bdbi2graphviz-[\d\.\_]+
 
 # generated files
 
