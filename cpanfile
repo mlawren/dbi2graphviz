@@ -1,8 +1,6 @@
 #!perl
 on configure => sub {
-    requires 'Module::Build'                      => '0.4004';
-    requires 'Module::Build::Pluggable'           => 0;
-    requires 'Module::Build::Pluggable::CPANfile' => '0.05';
+    requires 'ExtUtils::MakeMaker::CPANfile' => 0;
 };
 
 on runtime => sub {
