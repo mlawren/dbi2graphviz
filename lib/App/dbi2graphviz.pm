@@ -12,16 +12,14 @@ our $VERSION = '0.0.1_2';
 sub run {
     my $class = shift;
     my $opts  = shift;
-    $opts->{dsn} = 'dbi:SQLite:dbname=' . $opts->{dsn} if -f $opts->{dsn};
+    $opts->{dsn} =
+      ( -f $opts->{input} )
+      ? 'dbi:SQLite:dbname=' . $opts->{input}
+      : $opts->{input};
     $opts->{format} = $opts->{output} =~ s/.*\.(.*)/$1/r;
 
     my $max_color = scalar @{ $opts->{color} };
-
-    my $dbh = DBI->connect( $opts->{dsn} );
-    my $db  = $dbh->model(
-        name => $opts->{name} // $opts->{dsn},
-        exclude => $opts->{exclude},
-    );
+    my $db        = DBI->connect( $opts->{dsn} )->model;
 
     sub exclude {
         my $name    = shift;

@@ -6,9 +6,9 @@ use OptArgs2;
 
 our $VERSION = '0.0.1';
 
-arg dsn => (
+arg input => (
     isa      => 'Str',
-    comment  => 'DBI connection string',
+    comment  => 'DBI connection string or SQLite filename',
     required => 1,
 );
 
@@ -97,7 +97,7 @@ dbi2graphviz - database schema diagram generator
 
 =head1 SYNOPSIS
 
-	dbi2graphviz DSN OUTPUT [OPTIONS...]
+    dbi2graphviz INPUT OUTPUT [OPTIONS...]
 
 =head1 DESCRIPTION
 
@@ -108,7 +108,7 @@ distribution - dot, neato, twopi, etc.
 =head2 Options and Arguments
 
   Arguments:            
-    DSN                 DBI connection string
+    INPUT               DBI connection string or SQLite filename
     OUTPUT              graphviz output filename
 
   Options:              
